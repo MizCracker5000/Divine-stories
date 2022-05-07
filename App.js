@@ -1,12 +1,20 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Ionicons from '@expo/vector-icons/Ionicons';
+import FeedScreen from './screens/FeedScreen';
+import CreateStoryScreen from './screens/CreateStoryScreen';
+
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+   <NavigationContainer>
+     <Tab.Navigator>
+     <Tab.Screen name="Home" component={FeedScreen} />
+      <Tab.Screen name="Crear Historia" component={CreateStoryScreen} />
+     </Tab.Navigator>
+   </NavigationContainer>
+
   );
 }
 
